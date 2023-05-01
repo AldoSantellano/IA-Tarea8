@@ -101,6 +101,10 @@ class Game:
                     if minv < beta:
                         beta = minv
 
+                    if(Game.limitacion(minv)):
+
+                        return (minv, qx, qy)
+
         return (minv, qx, qy)
 
     # Jugador 'O' (IA)
@@ -140,6 +144,11 @@ class Game:
                         return (maxv, px, py)
                     if maxv >= alfa:
                         alfa = maxv
+
+                    if(Game.limitacion(maxv)):
+
+                        return (maxv, px, py)
+
         return (maxv, px, py)
 
    
@@ -184,6 +193,13 @@ class Game:
                 self.tableroActual[px][py] = 'O'
                 self.turnoHumano = 'X'
 
+    def limitacion(maximo):
+
+        if(maximo >= 1):
+
+            return True
+        
+        return False
 
 def main():
     g = Game()
